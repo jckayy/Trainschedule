@@ -76,10 +76,8 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(fstTrn);
   console.log(trnFrqn);
 
-  // Prettify the employee start
-  //var fstTrnPretty = moment.unix(fstTrn).format("MM/DD/YY");
-  
-  // Prettify the first train
+ 
+  // Convert the first train
   var fstTrnCoverted = moment(fstTrn, "HH:mm");
   var timedifference = fstTrnCoverted.diff(moment(),'minutes');
 
@@ -97,15 +95,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   console.log(timedifference);
   
-  // Calculate the months worked using hardcore math
-  // To calculate the months worked
-  //var empMonths = moment().diff(moment(empStart, "X"), "months");
-  //console.log(empMonths);
-
-  // Calculate the total billed rate
-  //var empBilled = empMonths * empRate;
-  //console.log(empBilled);
-
   // Add each train's data into the table
   $("#train-table > tbody").append("<tr><td>" + trnName + "</td><td>" + trnDest + "</td><td>" +
   trnFrqn + "</td><td>" + nextTrn + "</td><td>" + minsaway + "</td></tr>");
